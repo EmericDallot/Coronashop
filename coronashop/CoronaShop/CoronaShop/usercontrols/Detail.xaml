@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="CoronaShop.usercontrols.Detail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoronaShop.usercontrols"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition  x:Name="EspaceCommentaire"  Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="colonne1"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+
+        <ScrollViewer >
+            <StackPanel Grid.Row="0" >
+                <Image x:Name="LogoImage" MaxHeight="150" MaxWidth="150" Margin="5" Height="Auto" Source="{Binding ProduitsSelectionne.Image}" />
+                <WrapPanel>
+                    <Label Content="Nom:" FontWeight="Bold" Foreground="White"  FontSize="18"/>
+                    <TextBlock x:Name="NomTextBlock" Grid.Column="0" VerticalAlignment="Center" Foreground="White"  FontSize="18">
+                        <TextBlock.Inlines>
+                            <Run  Text="{Binding ProduitsSelectionne.Nom}"/>
+                            <Run  Text=" "/>
+                            <Run  Text="{Binding ProduitsSelectionne.Contenance}"/>
+                            <Run  Text="{Binding ProduitsSelectionne.Unite}"/>
+                        </TextBlock.Inlines>
+                    </TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Prix:"  FontWeight="Bold" Foreground="White" FontSize="18"/>
+                    <TextBlock Text="{Binding ProduitsSelectionne.Prix, StringFormat=c}" x:Name="PrixTextBlock" Grid.Column="0" VerticalAlignment="Center" Foreground="White" FontSize="18"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Délai de livraison:"  FontWeight="Bold" Foreground="White" FontSize="18"/>
+                    <TextBlock x:Name="DelaisTextBlock" Text="{Binding ProduitsSelectionne.DelaisDeLivraison, StringFormat={}{0}jours}" Grid.Column="0" VerticalAlignment="Center" Foreground="White" FontSize="18"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Type de Produit:"  FontWeight="Bold" Foreground="White" FontSize="18"/>
+                    <TextBlock x:Name="TypeTextBlock" Text="{Binding ProduitsSelectionne.Type}"  Grid.Column="0" VerticalAlignment="Center" Foreground="White" FontSize="18"></TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Provenance:"  FontWeight="Bold" Foreground="White" FontSize="18"/>
+                    <TextBlock x:Name="ProvenanceTextBlock" Grid.Column="0" VerticalAlignment="Center" Text="{Binding ProduitsSelectionne.Provenance}" Foreground="White" FontSize="18"></TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Note:"  FontWeight="Bold" Foreground="White" FontSize="18"/>
+                    <TextBlock x:Name="NoteTextBlock" Text="{Binding NoteMoyenne}" TextAlignment="left" VerticalAlignment="Center" Foreground="White" FontSize="18"></TextBlock>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <Label Content="Description du Produit:"  FontWeight="Bold" Foreground="White" FontSize="18"/>
+                    <TextBlock x:Name="DescriptionTextBlock" TextWrapping="Wrap" Text="{Binding ProduitsSelectionne.Description}" Margin=" 5 0 0 0 " Foreground="White" FontSize="18"/>
+                </WrapPanel>
+            </StackPanel>
+        </ScrollViewer>
+        <ScrollViewer  HorizontalScrollBarVisibility="Hidden"  x:Name="AvisScrollViewer" VerticalScrollBarVisibility="Auto" Grid.Row="1"  MinHeight="{Binding ElementName=EspaceCommentaire, Path=ActualHeight}" Grid.ColumnSpan="2">
+            <ListView x:Name="CommentaryListView" ItemsSource="{Binding ListAvis}" Background="{x:Null}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Foreground="Yellow"  FontSize="18">
+                                <TextBlock.Inlines>
+                                    <Run  Text="{Binding Note}" FontWeight="Bold"/>
+                                    <Run  Text="/10" FontWeight="Bold"/>
+                                </TextBlock.Inlines>
+                            </TextBlock>
+                            <TextBlock FontSize="18" Foreground="White">
+                                <TextBlock.Inlines>
+                                    <Run  Text="Pseudo: " FontWeight="Bold"/>
+                                    <Run  Text="{Binding Pseudo}"/>
+                                </TextBlock.Inlines>
+                            </TextBlock>
+                            <StackPanel MaxWidth="{Binding Path=ActualWidth,ElementName=AvisScrollViewer }">
+                                <TextBlock Text="Commentaire:" FontWeight="Bold" FontSize="18" Foreground="White"/>
+                                <TextBlock  Text="{Binding Commentaire}" TextWrapping="Wrap" FontSize="18" Foreground="White"/>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+
+
+
+    </Grid>
+</UserControl>

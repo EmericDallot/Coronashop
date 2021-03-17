@@ -1,0 +1,39 @@
+﻿<Window x:Class="CoronaShop.SupprimerProduitAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoronaShop"
+        mc:Ignorable="d"
+        Title="SupprimerProduitAdmin" Height="450" Width="500" Background="AliceBlue"  WindowStartupLocation="CenterScreen" Icon="usercontrols/images/logo.ico">
+    <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="3*" ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Sélectionner un produit" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"></TextBlock>
+            <ScrollViewer x:Name="ProduitsScrollViewer" VerticalScrollBarVisibility="Auto" Grid.Column="1" Grid.Row="1" >
+                <StackPanel >
+
+                    <ListBox x:Name="ProduitsListBox"   ItemsSource="{Binding ListProduits}" SelectedItem="{Binding ProduitsSelectionnev2}"  Background="white" Height="{Binding ActualHeight, ElementName=ProduitsScrollViewer}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="20"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </StackPanel>
+            </ScrollViewer>
+            <Button Content="Valider" Style="{StaticResource BouttonRond}" Background="DodgerBlue" Foreground="White" Height="30" Width="150" FontSize="15" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Click="Button_Click" ></Button>
+
+
+    </Grid>
+</Window>

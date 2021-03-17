@@ -1,0 +1,27 @@
+﻿<Window x:Class="CoronaShop.RequeteProduit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoronaShop"
+        mc:Ignorable="d"
+        Title="RequeteProduit" Height="350" Width="600" Background="AliceBlue" FontWeight="Bold" Icon="usercontrols/images/logo.ico">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+
+
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" Content="Saisir les informations du produit" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="15" FontFamily="Britannic Bold"/>
+        <TextBox AcceptsReturn="True" Background="White" Grid.Column="1" Grid.Row="1" Text="Veuillez saisir vos Informations..."  Name="Information" GotFocus="Information_GotFocus" TextWrapping="Wrap"/>
+        <Button x:Name="PropositionBouton" Style="{StaticResource BouttonRond}"  Content="Valider ma requête" Margin=" 0 10"  Click="PropositionBouton_Click" Grid.Column="1" Grid.Row="2" Width="250" Height=" 40" Foreground="White" Background="DodgerBlue"></Button>
+    </Grid>
+</Window>

@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="CoronaShop.usercontrols.UtilisateurConnexionInscription"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoronaShop.usercontrols"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock  x:Name="TitleTextblock" Text="Se connecter/S'inscrire" FontSize="36" Margin="0,0,0,5" TextAlignment="Center"/>
+            <Image Source="images/logo.png" Width="150" Height="150" />
+            <TextBlock Text="Identifiant:" Margin="0,5,0,5" TextWrapping="Wrap" Width="250" FontSize="18"/>
+            <TextBox x:Name="UsernameTextBox" Margin="4" Width="250" KeyUp="UsernameTextBox_KeyUp"/>
+            <TextBlock Text="Mot de passe:" Margin="0,5,0,5" TextWrapping="Wrap" Width="250" FontSize="18"/>
+            <PasswordBox x:Name="PasswordPasswordBox" Margin="4" Width="250" KeyUp="PasswordPasswordBox_KeyUp"/>
+            <Button x:Name="LogInButton" Content="Se connecter/S'inscrire" Background="DodgerBlue" Foreground="White" Width="150" Height="33" FontSize="18" HorizontalAlignment="Center" Margin="0,20" Click="LogInButton_Click" Style="{StaticResource BouttonRond}"/>
+            <TextBlock x:Name="IsNewTextBlock" Text="Vous êtes nouveau?/Vous avez déjà un compte?" TextAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            <TextBlock x:Name="RegisterButtonTextBlock" Text="Cliquer-ici" Foreground="DodgerBlue" TextAlignment="Center" VerticalAlignment="Center" FontSize="16" MouseLeftButtonUp="RegisterButtonTextBlock_MouseLeftButtonUp"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

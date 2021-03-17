@@ -1,0 +1,24 @@
+﻿<Window x:Class="CoronaShop.AjouterAuPanier"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoronaShop"
+        mc:Ignorable="d"
+        Title="AjouterAuPanier" FontWeight="DemiBold" Height="300" Width="300" ResizeMode="NoResize" Background="AliceBlue" WindowStartupLocation="CenterScreen" Icon="usercontrols/images/logo.ico">
+    <Grid>
+        <StackPanel Margin="5" VerticalAlignment="Center" DataContext="{Binding ProduitsSelectionne}">
+            <TextBlock Text="{Binding Nom}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18"/>
+            <TextBlock Text="Prix:" Margin="0 5 0 0" HorizontalAlignment="Center" FontSize="18"></TextBlock>
+            <TextBlock Text="{Binding Prix, StringFormat=c}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18"/>
+            <TextBlock Text="Nombre de produit:" Margin="0 5 0 0"  HorizontalAlignment="Center" FontSize="18"/>
+            <WrapPanel HorizontalAlignment="Center">
+                <Slider  x:Name="SliderQte" HorizontalAlignment="Center" Margin="5,5,0,0" VerticalAlignment="Top" Width="150" ValueChanged="Slider_ValueChanged" Maximum="99"/>
+                <TextBlock  x:Name="PositionSlider" Text="0"  FontSize="15" Foreground="Black" Background="{x:Null}" />
+            </WrapPanel>
+
+            <Button Style="{StaticResource BouttonRond}" Height="30" Content="Ajouter !" Width="100" Margin="0 35 0 0" Click="Button_Click" Foreground="White" Background="DodgerBlue" FontSize="18"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

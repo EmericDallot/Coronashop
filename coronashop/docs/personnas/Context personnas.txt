@@ -1,0 +1,66 @@
+Personna n°1:
+Aubin Garreau
+61, rue de l'Epeule
+76000 ROUEN
+
+Prénom: Garreau
+Nom: Austin
+Date de naissance: Février 25, 1935
+Âge: 85 ans
+
+Profession: enseignant à la retraite
+
+Adresse e-mail: AubinGarreau@gmail.com
+
+Nom d'utilisateur: Allasted
+Mot de passe: eev2IGhah7
+
+Interet pour CoronaShop:
+Aubin Garreau, a peur pour sa santé à cause de l'épidemie du Covid-19.
+Il veut donc commandé de l'équipement facilement et rapidement.
+
+_____________________________________________________________________________________________________________________
+
+
+Personna n°2:
+Juliette Plourde
+2, place Maurice-Charretier
+28000 CHARTRES
+
+Prénom: Juliette 
+Nom: Plourde
+Date de naissance: Février 10, 1971
+Âge: 49 ans
+
+Profession: Directrice d'une clinique hospitalière
+
+Adresse e-mail: JuliettePlourde@gmail.com
+
+Nom d'utilisateur: Earry1941
+Mot de passe: ulei5phuoZ
+
+Interet pour CoronaShop:
+Juliette Plourde, veut protéger son personnel hospitalier de  l'épidemie du Covid-19.
+Elle veut donc commander des masques et du gel hydroalcoolique en quantité importante et le plus rapidement possible.
+
+_____________________________________________________________________________________________________________________
+
+Personna n°3
+Bertrand Trudeau
+77, rue Goya
+97160 LE MOULE
+
+Prénom: Bertrand 
+Nom: Trudeau
+Date de naissance: Avril 11, 2000
+Âge: 20 ans
+
+Profession: Administrateur chez CoronaShop
+
+Adresse e-mail: BertrandTrudeau@armyspy.com
+
+Nom d'utilisateur: Gingee
+Mot de passe: iiNgie1e
+
+Interet pour CoronaShop:
+Bertrand Trudeau, va gérer la base de donnée de l'application.

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove=".jpg" />
+    <None Remove="logo.svg" />
+    <None Remove="usercontrols\images\logo.ico" />
+    <None Remove="usercontrols\images\logo.png" />
+    <None Remove="usercontrols\images\logo.svg" />
+    <None Remove="usercontrols\images\virus.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="3.2.0-ci1494" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Manager\Manager.csproj" />
+    <ProjectReference Include="..\Model\Model.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Resource Include="usercontrols\images\logo.ico" />
+    <Resource Include="usercontrols\images\logo.png" />
+    <Resource Include="usercontrols\images\logo.svg" />
+    <Resource Include="usercontrols\images\virus.jpg" />
+  </ItemGroup>
+
+</Project>

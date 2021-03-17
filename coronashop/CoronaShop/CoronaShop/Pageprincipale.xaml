@@ -1,0 +1,100 @@
+﻿<Window x:Class="CoronaShop.Pageprincipale"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoronaShop"
+        mc:Ignorable="d"
+        xmlns:myControls="clr-namespace:CoronaShop.usercontrols"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Accueil" Height="479" Width="900" 
+        Icon="usercontrols/images/logo.ico" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" ></ColumnDefinition>
+            <ColumnDefinition MinWidth="280"></ColumnDefinition>
+            <ColumnDefinition MinWidth="320"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" ></RowDefinition>
+            <RowDefinition Height="116*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Fill="#ff679CC9"/>
+        <Rectangle Grid.Column="2" Grid.RowSpan="3" Fill="#ff679CC9"/>
+        <Rectangle Grid.Column="1" Grid.Row="0" Fill="DodgerBlue" Height="50"/>
+        <Rectangle Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Fill="AliceBlue"/>
+        <Rectangle Grid.Column="0" Grid.Row="0" Fill="#FF4572A0"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Liste de produits" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="21"/>
+
+
+        <WrapPanel HorizontalAlignment="center" VerticalAlignment="Center">
+            <Button  Click="Button_Click_1" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}">
+                <materialDesign:PackIcon Kind="Cart" Width="40" Height="40" Foreground="White"/>
+            </Button>
+            <TextBlock Text="{Binding CountPanier,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Foreground="White" FontWeight="Bold"></TextBlock>
+            <Button Click="Button_Click_2" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}" Margin="20,0">
+                <materialDesign:PackIcon Kind="Person" Width="40" Height="40" Foreground="White"/>
+            </Button>
+            <Button Click="DeconnexionButton_Click" x:Name="DeconnexionButton" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}">
+                <materialDesign:PackIcon Kind="Shutdown" Width="40" Height="40" Foreground="White"/>
+            </Button>
+
+
+        </WrapPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" >
+            <TextBlock x:Name="PseudoTextBlock" TextAlignment="left" Width="157" Foreground="White" FontSize="15">
+                <TextBlock.Inlines>
+                    <Run Text="Bienvenue, "/>
+                    <Run FontWeight="Bold" Text="{Binding UtilisateursEnCours.Pseudo}" />
+                </TextBlock.Inlines>
+            </TextBlock>
+            <WrapPanel Margin="0,5">
+                <TextBox materialDesign:HintAssist.Hint="Ok" Foreground="White" FontSize="12" x:Name="textBoxSearch" Width="120" TextChanged="TextBoxSearch_TextChanged" Background="{x:Null}" BorderBrush="White"/>
+                <materialDesign:PackIcon Kind="Magnify" Foreground="White"/>
+            </WrapPanel>
+
+
+
+
+            <Label FontWeight="Bold" Foreground="White" FontSize="13">Trier par:</Label>
+            <RadioButton x:Name="radioTous" GroupName="Trier" Checked="RadioTous_Checked"  Foreground="White" IsChecked="True">Tous</RadioButton>
+            <RadioButton x:Name="radioMasques" GroupName="Trier" Checked="RadioMasques_Checked"  Foreground="White">Masque</RadioButton>
+            <RadioButton x:Name="radioGels" GroupName="Trier" Checked="RadioGels_Checked"  Foreground="White">Gel</RadioButton>
+
+        </StackPanel>
+        <Button x:Name="ButtonRequetePanelAdmin"  Foreground="White" Style="{StaticResource BouttonRond}" Grid.Row="2"  Width="190" Height="30" FontSize="18" Margin="5,5" Content="Requête produit" Background="#FF4572A0" Click="Button_Click"></Button>
+        <ScrollViewer Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+            <StackPanel  x:Name="masterStackPanel">
+                <ListBox x:Name="listBoxData" ItemsSource="{Binding ListProduits}" SelectedItem="{Binding ProduitsSelectionne}" MinHeight="{Binding ActualHeight, ElementName=masterStackPanel}" Background="{x:Null}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" ></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="{Binding Image}" Height="50"/>
+                                <StackPanel HorizontalAlignment="Center" Grid.Column="1">
+
+                                    <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="20"/>
+                                    <TextBlock TextAlignment="left" Text="{Binding Prix, StringFormat=c}" FontSize="16"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+      
+        <myControls:Detail x:Name="detailMyContols"  Grid.Column="2" Grid.RowSpan="2" />
+        <WrapPanel HorizontalAlignment="Center"  Grid.Column="2" Grid.Row="2" VerticalAlignment="Center">
+            <Button x:Name="commandButton"  Foreground="White" Content="Ajouter au panier" Background="DodgerBlue" Width="150" Height="30" FontSize="18" Margin="5,5" Click="CommandButton_Click" Style="{StaticResource BouttonRond}"/>
+            <Button x:Name="commentButton"  Foreground="White" Content="Commenter" Background="#FF4572A0" Width="150" Height="30" FontSize="18" Margin="5,5" Click="CommentButton_Click" Style="{StaticResource BouttonRond}"/>
+        </WrapPanel>
+
+
+    </Grid>
+</Window>
